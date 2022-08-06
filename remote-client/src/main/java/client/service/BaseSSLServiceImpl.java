@@ -9,8 +9,8 @@ import yages.YagesSchema;
  */
 public class BaseSSLServiceImpl extends BaseSSLService {
 
-    public BaseSSLServiceImpl(String host, int port) {
-        super(host, port);
+    public BaseSSLServiceImpl(String target) {
+        super(target);
     }
 
     @Override

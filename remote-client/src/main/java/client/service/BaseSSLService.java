@@ -19,15 +19,9 @@ public abstract class BaseSSLService {
     protected final ManagedChannel channel;
     protected final EchoGrpc.EchoBlockingStub blockingStub;
 
-    public BaseSSLService(String host, int port) {
-        TlsChannelCredentials.Builder tlsBuilder = TlsChannelCredentials.newBuilder();
-        try {
-            tlsBuilder.trustManager(new File("xxxxx.pem"));
-        }catch (Exception e){
-            System.err.println(e.getMessage());
-        }
+    public BaseSSLService(String target) {
 
-        channel = Grpc.newChannelBuilderForAddress(host, port,tlsBuilder.build())
+        channel =  Grpc.newChannelBuilder(target,TlsChannelCredentials.create())
                  // 传输的数据大于4MB时，需要指定此参数
                 .maxInboundMessageSize(Integer.MAX_VALUE)
                 .build();
