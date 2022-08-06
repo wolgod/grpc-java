@@ -1,5 +1,7 @@
 package client.stater;
 
+import client.service.BaseSSLService;
+import client.service.BaseSSLServiceImpl;
 import client.service.BaseService;
 import client.service.BaseServiceImpl;
 
@@ -9,8 +11,10 @@ import client.service.BaseServiceImpl;
  */
 public class Client {
     public static void main(String[] args) {
-        BaseService client = new BaseServiceImpl("127.0.0.1", 10086);
+        BaseSSLService client = new BaseSSLServiceImpl("grpctest2.bitautotech.com", 443);
         client.sayHello("我是一名保安，保卫一方平安，爱吃小熊饼干，喜欢业主晓丹");
+        client.reverse("hshhaa");
+
         client.shutdown();
     }
 }

@@ -1,17 +1,15 @@
 package client.service;
 
 
-import client.grpc.protobuf.HelloRequest;
-import client.grpc.protobuf.HelloResponse;
 import yages.YagesSchema;
 
 /**
  * @author Lsy
  * @date 2022/2/18
  */
-public class BaseServiceImpl extends BaseService {
+public class BaseSSLServiceImpl extends BaseSSLService {
 
-    public BaseServiceImpl(String host, int port) {
+    public BaseSSLServiceImpl(String host, int port) {
         super(host, port);
     }
 
